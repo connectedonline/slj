@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>SeaLion-Jellyfish Terminal</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      padding: 20px;
+    }
+    #terminal {
+      width: 100%;
+      height: 400px;
+      overflow-y: auto;
+      border: 1px solid #0f0;
+      padding: 10px;
+    }
+    #input {
+      width: 100%;
+      background: #000;
+      color: #0f0;
+      border: none;
+      font-family: monospace;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal">
+    <div>> Welkom bij de terminal. Typ een commando.</div>
+  </div>
+  <input type="text" id="input" autofocus placeholder="Typ hier je commando...">
+
+  <script>
+    const terminal = document.getElementById('terminal');
+    const input = document.getElementById('input');
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const command = input.value.trim();
+        terminal.innerHTML += `<div>> ${command}</div>`;
+        handleCommand(command);
+        input.value = '';
+        terminal.scrollTop = terminal.scrollHeight;
+      }
+    });
+
+    function handleCommand(cmd) {
+      switch (cmd) {
+        case 'help':
+          terminal.innerHTML += `<div>commands:: help, clear, echo [tekst]</div>`;
+          break;
+        case 'clear':
+          terminal.innerHTML = '';
+          break;
+        case 'badger':
+          terminal.innerHTML += `<div>badger badger badger</div>`;
+          setTimeout(() => {
+            terminal.innerHTML += `<div>weebl</div>`;
+            window.location.href = 'badger.html';
+          }, 5000); // 5000 milliseconden = 5 seconden
+          break;
+        case 'sudo sd 128.0.p freedom':
+          terminal.innerHTML += `<div>starting second boot...</div>`;
+          setTimeout(() => {
+            terminal.innerHTML += `<div>Second boot started.</div>`;
+            window.location.href = 'second_boot/second_boot.html';
+          }, 5000); // 5000 milliseconden = 5 seconden
+          break;
+        default:
+          if (cmd.startsWith('echo ')) {
+            terminal.innerHTML += `<div>${cmd.slice(5)}</div>`;
+          } else {
+            terminal.innerHTML += `<div>Onbekend commando: ${cmd}</div>`;
+          }
+      }
+    }
+  </script>
+</body>
+</html>

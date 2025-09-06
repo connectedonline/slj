@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP4 Auto Player</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        video {
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SeaLion-Jellyfish Videoplayer</h1>
+    <video id="videoPlayer" controls autoplay>
+        <source src="video.mp4" type="video/mp4">
+        Je browser ondersteunt geen video-element.
+    </video>
+
+    <script>
+        // Controleer of het bestand bestaat
+        fetch("video.mp4")
+            .then(response => {
+                if (!response.ok) {
+                    document.getElementById("videoPlayer").style.display = "none";
+                    document.body.innerHTML += "<p>Geen MP4-bestand gevonden in de directory.</p>";
+                }
+            })
+            .catch(error => console.log("Fout bij het laden van de video:", error));
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #202020;
+            color: white;
+        }
+        canvas {
+            border: 3px solid white;
+            background: url('background.png') no-repeat center;
+            background-size: cover;
+        }
+        #restartButton {
+            display: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background: red;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Race Game</h1>
+    <p>Gebruik de pijltjestoetsen om te rijden!</p>
+    
+    <!-- 🎵 Achtergrondmuziek -->
+    <audio id="gameMusic" loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+    
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+    
+    <!-- 🔄 Opnieuw spelen-knop -->
+    <button id="restartButton" onclick="resetGame()">Opnieuw spelen</button>
+    
+    <script src="game.js"></script>
+</body>
+</html>
