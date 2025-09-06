@@ -2,7 +2,7 @@ const apps = [
   { name: "Notes", icon: "notes.png", path: "notes.html" },
   { name: "about", icon: "about.png", path: "about.html" },
   { name: "help", icon: "help.png", path: "help.html" },
-  { name: "Race Game", icon: "Game.png", path: "Game.html" },
+  { name: "Race Game", icon: "game.png", path: "Game.html" },
   { name: "Terminal", icon: "terminal.png", path: "terminal.html" },
   { name: "Texter", icon: "texter.png", path: "texter.html" },
   { name: "Pelckmans Portaal", icon: "pelckmans.png", path: "pelckmans.html" },
@@ -69,3 +69,4 @@ function loadApps() {
 }
 
 window.onload = loadApps;
+
