@@ -9,6 +9,7 @@ const apps = [
   { name: "Scoodle", icon: "scoodle.png", path: "scoodle.html" },
   { name: "Google", icon: "google.png", path: "google.html" },
   { name: "Smartschool", icon: "smartschool.png", path: "smartschool.html" }
+  { name: "Enable SLJ Pro", icon: "9520875.png", path: "pro.html" }
 ];
 
 // ✅ Popup-venster zoals een OS
@@ -69,4 +70,5 @@ function loadApps() {
 }
 
 window.onload = loadApps;
+
 
