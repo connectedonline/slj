@@ -8,7 +8,7 @@ const apps = [
   { name: "Pelckmans Portaal", icon: "pelckmans.png", path: "pelckmans.html" },
   { name: "Scoodle", icon: "scoodle.png", path: "scoodle.html" },
   { name: "Google", icon: "google.png", path: "google.html" },
-  { name: "Smartschool", icon: "smartschool.png", path: "smartschool.html" }
+  { name: "Smartschool", icon: "smartschool.png", path: "smartschool.html" },
   { name: "Enable SLJ Pro", icon: "9520875.png", path: "pro.html" }
 ];
 
@@ -70,5 +70,6 @@ function loadApps() {
 }
 
 window.onload = loadApps;
+
 
 
