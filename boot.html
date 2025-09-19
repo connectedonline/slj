@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="3;url=system.html">
+  <link rel="stylesheet" href="style.css">
+  <title>Boot</title>
+  <style>
+    body.boot-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+
+      position: relative;
+    }
+
+    .boot-logo {
+      max-width: 300px;
+    }
+
+    .recovery-hint {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 0.8em;
+      color: #ccc;
+      font-family: sans-serif;
+    }
+  </style>
+  <script>
+    document.addEventListener("keydown", function(event) {
+      if (event.key.toLowerCase() === "r") {
+        window.location.href = "recovery.html";
+      }
+    });
+  </script>
+</head> 
+<body class="boot-screen">
+  <img src="bootlogo.png" alt="Bootlogo" class="boot-logo">
+  <div class="recovery-hint">press r to recovery</div>
+</body>
+</html>

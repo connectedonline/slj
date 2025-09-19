@@ -2,43 +2,92 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="3;url=system.html">
-  <link rel="stylesheet" href="style.css">
-  <title>Boot</title>
+  <title>Lock Screen</title>
   <style>
-    body.boot-screen {
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e1e;
+      color: #fff;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-
-      position: relative;
     }
 
-    .boot-logo {
-      max-width: 300px;
+    .top-text, .bottom-text {
+      margin: 20px;
+      text-align: center;
+      font-size: 1.2em;
     }
 
-    .recovery-hint {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      font-size: 0.8em;
-      color: #ccc;
-      font-family: sans-serif;
+    .login-box {
+      background: #2c2c2c;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+      text-align: center;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
     }
   </style>
+</head>
+<body>
+  <div class="top-text">🔒 Welkom! Voer je gegevens in om verder te gaan.</div>
+
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Gebruikersnaam">
+    <input type="password" id="password" placeholder="Wachtwoord">
+    <button onclick="login()">Inloggen</button>
+    <div class="error" id="errorMsg"></div>
+  </div>
+
+  <div class="bottom-text">📌 Alleen geautoriseerde gebruikers hebben toegang tot dit systeem.</div>
+
   <script>
-    document.addEventListener("keydown", function(event) {
-      if (event.key.toLowerCase() === "r") {
-        window.location.href = "recovery.html";
+    function login() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value;
+
+      const users = {
+        "Kobe Van Houtte": "Rudolf2025!",
+        "Skylar Vanlaethem": "1S12025!",
+		"Aaron": "0474759191"
+      };
+
+      if (users[user] === pass) {
+        window.location.href = "boot.html";
+      } else {
+        document.getElementById("errorMsg").textContent = "❌ Ongeldige gebruikersnaam of wachtwoord.";
       }
-    });
+    }
   </script>
-</head> 
-<body class="boot-screen">
-  <img src="bootlogo.png" alt="Bootlogo" class="boot-logo">
-  <div class="recovery-hint">press r to recovery</div>
 </body>
 </html>
